@@ -1,0 +1,21 @@
+package com.genpact.springcore;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        ClassPathXmlApplicationContext con =  new ClassPathXmlApplicationContext("appCon.xml");
+        
+        HelloWorld obj = con.getBean(HelloWorld.class);
+        obj.sayHello();
+        con.close();
+    }
+}

@@ -1,0 +1,28 @@
+package com.genpact.springJDBC;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext c = new ClassPathXmlApplicationContext("JdbcContext.xml");
+    	EmployeeDao employeeDao = c.getBean(EmployeeDao.class);
+  
+    	Employee employee = new Employee();
+    	
+    	employee.setId(101);
+    	employee.setName("Pulkit Nagar");
+    	employee.setSalary(3000000);
+    	
+    	employeeDao.saveEmployee(employee);
+    	
+    	c.getBean(EmployeeDao.class);
+        System.out.println( "Hello World!" );
+    }
+}
